@@ -11,16 +11,21 @@
             font-family: 'Inter', sans-serif;
             background-color: #f0f4f8;
             min-height: 100vh;
+            height: 100vh;
+            overflow: hidden;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             padding: 1rem;
+            box-sizing: border-box;
         }
         .container {
             width: 100%;
             max-width: 1600px;
             min-height: calc(100vh - 2rem);
+            max-height: calc(100vh - 2rem);
+            overflow: hidden;
             background-color: #ffffff;
             border-radius: 1.5rem;
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
@@ -28,6 +33,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            box-sizing: border-box;
         }
         @media (min-width: 768px) {
             .container {
@@ -61,6 +67,48 @@
             max-height: 550px;
             aspect-ratio: 16/9;
         }
+
+        @media (orientation: portrait) and (max-width: 767px) {
+            .container {
+                flex-direction: column;
+                padding: 1rem;
+                max-height: calc(100vh - 2rem);
+                overflow: hidden;
+            }
+            .video-container {
+                width: auto;
+                margin-right: 0;
+                margin-bottom: 1rem;
+                display: flex;
+                justify-content: center;
+                flex-shrink: 0;
+            }
+            video, canvas {
+                width: 300px;
+                height: 400px;
+                max-height: 600px;
+                aspect-ratio: 4/6;
+            }
+            .results-container {
+                width: 90%;
+                margin-top: 1rem;
+                margin-left: 0;
+                flex-grow: 1;
+                overflow: hidden;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                padding-bottom: 0.5rem;
+            }
+            .emoji-output {
+                font-size: 3rem;
+            }
+            .message-box {
+                font-size: 0.9rem;
+            }
+        }
+
         .message-box {
             background-color: #e0f2fe;
             border-left: 4px solid #38b2ac;
